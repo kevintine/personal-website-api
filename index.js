@@ -51,6 +51,44 @@ app.post('/create-blog', async (req, res) => {
 });
 
 
+app.put('/update-blog/:id', async (req, res) => {
+    const { id } = req.params;
+    const { title, content, author, images, isPublished } = req.body;
+
+    // Validate required fields (you can adjust this based on what is mandatory for updates)
+    if (!title && !content && !author && !images && isPublished === undefined) {
+        return res.status(400).json({ message: "At least one field is required to update." });
+    }
+
+    try {
+        // Find the blog by ID and update the necessary fields
+        const updatedBlog = await Blog.findByIdAndUpdate(
+            id, 
+            { 
+                $set: {
+                    title,
+                    content,
+                    author,
+                    images,
+                    isPublished,
+                    dateUpdated: new Date()  // Adding an update date field
+                } 
+            },
+            { new: true, runValidators: true } // new: true returns the updated document, runValidators ensures schema validation
+        );
+
+        if (!updatedBlog) {
+            return res.status(404).json({ message: "Blog not found" });
+        }
+
+        res.status(200).json(updatedBlog); // Send the updated blog post as the response
+    } catch (err) {
+        res.status(500).json({ message: "Error updating blog", error: err.message });
+    }
+});
+
+
+
 app.get('/', (req, res) => {
   res.send('Hello, Node.js backend!');
 });
