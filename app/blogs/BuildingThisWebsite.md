@@ -7,6 +7,7 @@ So what should you choose when creating your websites? Well it really depends on
 React is a JavaScript libary that builds user interfaces. You'll want to choose this when you want more control over your application's structure and behaviour. 
 
 Use React when you desire
+
 - Single page applications like dashboards, internal company tools, or highly interactive frontends.
 - Full control over your tech stack. You're able to pick and choose exactly what build tools, routing libraries and others when using React. 
 - Where search engine optimization is not a primary concern due to fact that React renders content on the client side, which is not ideal for SEO.
@@ -17,7 +18,8 @@ Now onto Next.
 Next on the other hand is a full stack React framework. This builds upon the react library to give us full stack features like server side rendering, static site generation, routing and API handling. It simplifies common web development patterns
 
 Use Next when you desire
-- Search engine optimization and performance. Next uses server side rendering or static site generation which helps in Google's search engine optimization as well as faster load times. Examples include ecommerce, marketing sites, blogs or news sites. 
+
+- Search engine optimization and performance. Next uses server side rendering or static site generation which helps in Google's search engine optimization as well as faster load times Examples include ecommerce, marketing sites, blogs or news sites. 
 - You want a full stack web application out of the box. Initializing a Next project creates you backend and frontend features out of the box. 
 - Next also has the ability to scale it's applications where performance is a priority.
 
